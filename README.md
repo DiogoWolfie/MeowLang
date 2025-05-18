@@ -1,32 +1,28 @@
-# DrinkFinder
+# MeowLang
 
-### Descrição
+; Programa é uma sequência de instruções válidas
+program       = *(instruction)
 
-Um linguagem onde a entrada é uma cadeia de ingredientes e a saída é o drink que é possível fazer com eles ou o melhor match possível.
+; Instruções são compostas por comandos únicos
+instruction   = increment
+              / decrement
+              / move_right
+              / move_left
+              / output
+              / input
+              / loop_start
+              / loop_end
+              / whitespace
+              / comment
 
-### ABNT 
+increment     = "meow"
+decrement     = "mew"
+move_right    = "meeow"
+move_left     = "meeew"
+output        = "meooooow"
+input         = "mrrrow?"
+loop_start    = "prrrr("
+loop_end      = ")rrrpr"
 
-program         = IngredientList
-
-IngredientList  = "Com" Ingredient *("," Ingredient)  ; Ex: Com Cachaça, Lime, Sugar
-
-Ingredient      = MainAlcohol / Fruit / Sweetener / Other / STRING
-
-MainAlcohol     = "Cachaça" / "Vodka" / "Tequila" / "Rum" / "Gin"
-
-Fruit           = "Lime" / "Lemon" / "Pineapple" / "Strawberry"
-
-Sweetener       = "Sugar" / "Honey" / "Syrup"
-
-Other           = "Mint" / "Soda" / "GingerBeer" / "Ice"
-
---- Tokens ---
-STRING          = DQUOTE *CHAR DQUOTE  ; Para ingredientes customizados
-
-### Coisas a aplicar
-
-1) Banco de receitas (tipo um symboltable mas já montado)
-2) Parser para analísar a entrada, checar com o banco de receitas e devolver a saída
-3) tokenizer para garantir o que foi enviado
-
-O legal é que não importa se eu envie ingrediente a mais ou a menos, ele me devolver o que tiver melhor match.
+whitespace    = 1*(%x20 / %x09 / %x0A / %x0D)   ; espaço, tab, newline
+comment       = "#" *(%x00-0x7E)                ; ignora comentário até fim da linha
