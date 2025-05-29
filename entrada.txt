@@ -1,0 +1,12 @@
+meow meow meow meow meow meow meow meow meow meow  # 10
+#como não é vazio, entra no loop
+prrrr(
+    meeow              # move right
+    meow meow meow meow meow meow                   # acrescenta 6
+    meeew              # move left
+    mew                # decrememnta left cell
+)rrrpr
+
+meeow                # move para celula 1 (valor = 60)
+meow meow meow meow meow  # +5 → total = 65
+meooooow             # output (print 'A')
